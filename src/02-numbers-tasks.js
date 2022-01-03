@@ -114,8 +114,13 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const sk = x1 * x2 + y1 * y2;
+  const mod1 = Math.sqrt(x1 * x1 + y1 * y1);
+  const mod2 = Math.sqrt(x2 * x2 + y2 * y2);
+  const ang = Math.acos(sk / (mod1 * mod2));
+  return ang;
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -189,9 +194,12 @@ function getParallelepipedDiagonal(a, b, c) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
+function roundToPowerOfTen(num, pow) {
+  const ten = 10 ** pow;
+  const num1 = Math.round(num / ten) * ten;
+  return num1;
   // return Math.round(num / pow) * pow;
-  throw new Error('Not implemented');
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -211,8 +219,17 @@ function roundToPowerOfTen(/* num, pow */) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  let i = 2;
+  let isNum = true;
+  while (i < n) {
+    if (n % i === 0) {
+      isNum = false;
+    }
+    i += 1;
+  }
+  return isNum;
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -230,8 +247,12 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  const type = Number(value);
+  if (typeof type === 'number' && !Number.isNaN(type)) {
+    return Number(value);
+  } return def;
+  // throw new Error('Not implemented');
 }
 
 module.exports = {

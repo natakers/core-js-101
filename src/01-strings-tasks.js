@@ -327,9 +327,90 @@ function isString(value) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(/* value */) {
-  // return value.charCodeAt(0);
-  throw new Error('Not implemented');
+function getCardId(value) {
+  const arr = value.split('');
+  if (arr[1].charCodeAt(0) === 9827) {
+    if (arr[0].charCodeAt(0) > 49 && arr[0].charCodeAt(0) < 58) {
+      return arr[0].charCodeAt(0) - 49;
+    }
+    if (arr[0].charCodeAt(0) === 65) {
+      return arr[0].charCodeAt(0) - 65;
+    }
+    if (arr[0].charCodeAt(0) === 74) {
+      return 10;
+    }
+    if (arr[0].charCodeAt(0) === 81) {
+      return 11;
+    }
+    if (arr[0].charCodeAt(0) === 75) {
+      return 12;
+    }
+  }
+  if (arr.length === 3 && arr[2].charCodeAt(0) === 9827) {
+    return 9;
+  }
+  if (arr[1].charCodeAt() === 9830) {
+    if (arr[0].charCodeAt(0) > 49 && arr[0].charCodeAt(0) < 58) {
+      return arr[0].charCodeAt(0) - 49 + 13;
+    }
+    if (arr[0].charCodeAt(0) === 65) {
+      return arr[0].charCodeAt(0) - 65 + 13;
+    }
+    if (arr[0].charCodeAt(0) === 74) {
+      return 23;
+    }
+    if (arr[0].charCodeAt(0) === 81) {
+      return 24;
+    }
+    if (arr[0].charCodeAt(0) === 75) {
+      return 25;
+    } return arr[0].charCodeAt() - 40;
+  }
+  if (arr.length === 3 && arr[2].charCodeAt(0) === 9830) {
+    return 22;
+  }
+  if (arr[1].charCodeAt() === 9829) {
+    if (arr[0].charCodeAt(0) > 49 && arr[0].charCodeAt(0) < 58) {
+      return arr[0].charCodeAt(0) - 49 + 26;
+    }
+    if (arr[0].charCodeAt(0) === 65) {
+      return arr[0].charCodeAt(0) - 65 + 26;
+    }
+    if (arr[0].charCodeAt(0) === 74) {
+      return 36;
+    }
+    if (arr[0].charCodeAt(0) === 81) {
+      return 37;
+    }
+    if (arr[0].charCodeAt(0) === 75) {
+      return 38;
+    } return arr[0].charCodeAt() - 40;
+  }
+  if (arr.length === 3 && arr[2].charCodeAt(0) === 9829) {
+    return 35;
+  }
+  if (arr[1].charCodeAt() === 9824) {
+    if (arr[0].charCodeAt(0) > 49 && arr[0].charCodeAt(0) < 58) {
+      return arr[0].charCodeAt(0) - 49 + 39;
+    }
+    if (arr[0].charCodeAt(0) === 65) {
+      return arr[0].charCodeAt(0) - 65 + 39;
+    }
+    if (arr[0].charCodeAt(0) === 74) {
+      return 49;
+    }
+    if (arr[0].charCodeAt(0) === 81) {
+      return 50;
+    }
+    if (arr[0].charCodeAt(0) === 75) {
+      return 51;
+    } return arr[0].charCodeAt() - 40;
+  }
+  if (arr.length === 3 && arr[2].charCodeAt(0) === 9824) {
+    return 48;
+  }
+  return 11;
+  // throw new Error('Not implemented');
 }
 
 
