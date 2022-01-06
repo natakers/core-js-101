@@ -36,9 +36,10 @@ function findElement(arr, value) {
  *    2 => [ 1, 3 ]
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds(/* len */) {
+function generateOdds(len) {
+  return Array(len).fill(1).map((item, index) => 1 + index * 2);
   // let arr
-  throw new Error('Not implemented');
+  // throw new Error('Not implemented');
 }
 
 
@@ -210,8 +211,12 @@ function getTail(arr, n) {
  *    +'20,21,22,23,24\n'
  *    +'30,31,32,33,34'
  */
-function toCsvText(/* arr */) {
-  throw new Error('Not implemented');
+function toCsvText(arr) {
+  return arr.reduce((str, item) => `${str}\n${item.join(',')}`);
+  // return str = arr.map((item) => {
+
+  // })
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -245,8 +250,15 @@ function toArrayOfSquares(arr) {
  *   [ 0, 0, 0, 0, 0]         => [ 0, 0, 0, 0, 0]
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
-function getMovingSum(/* arr */) {
-  throw new Error('Not implemented');
+function getMovingSum(arr) {
+  const arr1 = [];
+  arr1.push(arr.reduce((str, item) => {
+    arr1.push(str);
+    return item + str;
+    // console.log(str);
+  }));
+  return arr1;
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -298,8 +310,9 @@ function propagateItemsByPositionIndex(/* arr */) {
  *   [ 1,2,3,4,5,6,7,8,9,10 ] => [ 10, 9, 8 ]
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
-function get3TopItems(/* arr */) {
-  throw new Error('Not implemented');
+function get3TopItems(arr) {
+  return arr.sort((a, b) => b - a).splice(0, 3);
+  // throw new Error('Not implemented');
 }
 
 
@@ -352,8 +365,12 @@ function sortDigitNamesByNumericOrder(/* arr */) {
  *   [ -1, 1, -1, 1 ]      => 0
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
-function getItemsSum(/* arr */) {
-  throw new Error('Not implemented');
+function getItemsSum(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  return arr.reduce((sum, item) => sum + item);
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -477,8 +494,20 @@ function getIdentityMatrix(/* n */) {
  *     0, 100 => [ 0, 1, 2, ..., 100 ]
  *     3, 3   => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+function getIntervalArray(start, end) {
+  const arr = [];
+  // let arr = Array(len).fill(n);
+  arr.push(Array(end - start).fill(start).reduce((el) => {
+    arr.push(el);
+    return 1 + el;
+    // console.log(str);
+  }, start));
+  return arr;
+
+// }
+  // const len = end - start + 1;
+  // return Array(len).fill(0).map((item) => start+1);
+  // throw new Error('Not implemented');
 }
 
 /**
