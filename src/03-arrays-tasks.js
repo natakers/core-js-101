@@ -604,12 +604,9 @@ function group(/* array, keySelector, valueSelector */) {
  *   [[1, 2], [3, 4], [5, 6]], (x) => x     =>   [ 1, 2, 3, 4, 5, 6 ]
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
-function selectMany(/* arr, childrenSelector */) {
-  // let arr1 = arr.reduce((sum, item) => sum.concat(item));
-  // console.log(childrenSelector);
-  // if (!Array.isArray(arr1)) arr1 = childrenSelector(arr1);
-  // return arr1;
-  throw new Error('Not implemented');
+function selectMany(arr, childrenSelector) {
+  return arr.reduce((sum, item) => sum.concat(childrenSelector(item)), []);
+  // throw new Error('Not implemented');
 }
 
 
@@ -625,9 +622,11 @@ function selectMany(/* arr, childrenSelector */) {
  *   ['one','two','three'], [2]       => 'three'  (arr[2])
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
-function getElementByIndexes(/* arr, indexes */) {
-  // return arr.indexOf(indexes);
-  throw new Error('Not implemented');
+function getElementByIndexes(arr, indexes) {
+  if (indexes.length !== 0) {
+    return getElementByIndexes(arr[indexes[0]], indexes.slice(1, indexes.length));
+  } return arr;
+  // throw new Error('Not implemented');
 }
 
 

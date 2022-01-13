@@ -56,6 +56,7 @@ function getJSON(obj) {
  *
  */
 function fromJSON(/* proto, json */) {
+  //  return
   throw new Error('Not implemented');
 }
 
